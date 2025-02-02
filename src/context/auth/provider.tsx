@@ -1,11 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+// AuthProvider.tsx
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-
-interface AuthContextType {
-  token?: string;
-}
-
-export const AuthContext = createContext<AuthContextType | null>(null);
+import { AuthContext } from "./auth-context";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [cookies] = useCookies(["access_token"]);

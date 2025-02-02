@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { ArrowDown } from "../../../image.constants";
+import ArrowDown from "../../assets/arrow-down.png";
+
 export interface IDropDownProps {
   selectedOption?: string;
   toggleDropdown?: () => void;
   selectOption?: (option: React.SetStateAction<string>) => void;
   isOpen?: boolean;
 }
+
 const UserTypeDropdown = ({
   isOpen,
   selectOption,
@@ -13,9 +15,7 @@ const UserTypeDropdown = ({
   toggleDropdown,
 }: IDropDownProps) => {
   const options = ["User", "Host"];
-
   const dropdownRef = useRef<HTMLDivElement>(null);
-  console.log(selectedOption);
 
   // Close dropdown if clicked outside
   useEffect(() => {
@@ -41,28 +41,32 @@ const UserTypeDropdown = ({
   }, [isOpen, toggleDropdown]);
 
   return (
-    <div className="flex  w-[10%]  justify-end " ref={dropdownRef}>
+    <div
+      className="relative flex w-full md:w-[10%] items-center"
+      ref={dropdownRef}
+    >
       <button
-        className="flex items-center justify-between w-full max-w-[162px]  px-4 h-[40px]  bg-white border border-gray-300 rounded-lg shadow-sm "
+        className="flex items-center justify-between w-full md:max-w-[162px] px-4 h-[40px] bg-white  border border-[#E8E8E8]  rounded-lg shadow-sm"
         onClick={toggleDropdown}
       >
-        <div className="flex items-center gap-2 justify-between  w-full">
-          <span className="text-[#7C7C7C] text-md whitespace-nowrap overflow-hidden text-ellipsis">
+        <div className="flex items-center gap-2 justify-between w-full">
+          <span className="text-[#7C7C7C] text-sm overflow-hidden text-ellipsis whitespace-nowrap truncate">
             {selectedOption?.toString() || "Role"}
           </span>
           <img src={ArrowDown} alt="DropDown Arrow" width={25} height={25} />
         </div>
       </button>
       {isOpen && (
-        <div className="absolute z-20 mt-11  bg-white border border-gray-300 rounded-md shadow-lg w-[145px]  ">
-          <div className="py-2">
+        <div className="absolute top-full z-20 mt-1 bg-white border border-gray-300 rounded-md shadow-lg w-full sm:w-[200px] max-w-[150px] overflow-hidden">
+          <div className="py-2 max-h-48 overflow-y-auto">
             {options.map((option) => (
               <button
                 key={option}
-                className="block w-full px-4 py-2 text-left hover:bg-gray-100 z-10 text-sm whitespace-nowrap overflow-hidden text-ellipsis"
+                className="block w-full px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg font-medium cursor-pointer"
                 onClick={() => selectOption && selectOption(option)}
               >
                 {option}
+                {/* <div className="h-[2px] bg-[#E8E8E8] my-2 border-t-2 border-dashed"></div> */}
               </button>
             ))}
           </div>
@@ -74,4 +78,3 @@ const UserTypeDropdown = ({
 
 const MemoizedUserTypeDropdown = React.memo(UserTypeDropdown);
 export { MemoizedUserTypeDropdown };
-// export { OrganizationTypeDropdown, MemoizedOrganizationTypeDropdown };

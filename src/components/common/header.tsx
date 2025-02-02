@@ -5,7 +5,7 @@ import BackButton from "../buttons/back-button";
 import Button from "../buttons/button";
 
 interface HeaderProps {
-  title: string;
+  title?: string;
   isBackButton?: boolean;
   buttonText?: string;
   onclick?: () => void;
@@ -31,22 +31,24 @@ const Header = ({
           <BackButton link={link} />
         </div>
       )}
-      <div className="flex flex-col justify-center items-start">
-        <p className="text-text-primary font-medium text-xl md:text-4xl sm:text-xl xs:text-lg">
-          {title}
-        </p>
+      {title && (
+        <div className="flex justify-between items-center">
+          <p className="text-text-primary font-medium text-xl md:text-4xl sm:text-xl xs:text-lg">
+            {title}
+          </p>
+        </div>
+      )}
 
-        {buttonText && (
-          <div>
-            <Button
-              isIcon={isIcon}
-              text={buttonText}
-              onClick={() => onclick && onclick()}
-              redirectURL={redirectUrl}
-            />
-          </div>
-        )}
-      </div>
+      {buttonText && (
+        <div>
+          <Button
+            isIcon={isIcon}
+            text={buttonText}
+            onClick={() => onclick && onclick()}
+            redirectURL={redirectUrl}
+          />
+        </div>
+      )}
     </div>
   );
 };

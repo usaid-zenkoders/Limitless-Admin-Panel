@@ -1,9 +1,5 @@
 // React Query Imports
-import {
-  useMutation,
-  UseMutationResult,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, UseMutationResult } from "@tanstack/react-query";
 
 // API & Service Imports
 import { URL } from "../api-base-urls";
@@ -22,8 +18,6 @@ export const useAdminLoginMutation = (): UseMutationResult<
   Error,
   LoginPayload
 > => {
-  const queryClient = useQueryClient();
-
   const adminLoginFn = async (payload: LoginPayload): Promise<unknown> => {
     const response = await POST(URL.ADMIN_LOGIN, payload);
     return response;

@@ -1,5 +1,5 @@
 // ============== Icons ==============
-import { UserTabLogo } from "../../image.constants";
+import UserTabLogo from "../assets/profile-2user.png";
 
 export const tabs = [
   {

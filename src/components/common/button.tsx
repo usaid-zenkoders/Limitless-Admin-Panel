@@ -1,5 +1,6 @@
 // Libs Imports
-import { cn } from "@/lib/utils";
+
+import { cn } from "../../lib/utils";
 
 // React & next Imports
 

@@ -2,7 +2,7 @@
 import { ITable } from "../../types/auth/dashboard/table";
 import CardFrame from "../cards/card-frame";
 import { MemoizedUserTypeDropdown } from "../dropdowns";
-import SearchInput from "../inputs/inputs/search-input";
+import SearchInput from "../inputs/search-input";
 import TableFoot from "./table-foot";
 
 // Interface
@@ -65,7 +65,7 @@ const Table = ({
             <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-primary" />
           </div>
         ) : (
-          <div className="w-full lg:overflow-x-scroll xl:overflow-x-auto max-h-[810px] overflow-y-autp">
+          <div className="w-full lg:overflow-x-scroll xl:overflow-x-auto max-h-[810px] overflow-y-auto  ">
             <table className="w-full relative ">{children}</table>
           </div>
         )}

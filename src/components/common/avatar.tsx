@@ -29,7 +29,7 @@ const Avatar = ({
         className={cn(
           !isSquare ? "rounded-full" : "",
           `${size == 10 ? "h-[10px]" : "h-[40px]"} ${size == 10 ? "min-h-[20px]" : "min-h-[40px]"}`,
-          `${size == 10 ? "w-[10px]" : "w-[40px]"} ${size == 10 ? "min-w-[20px]" : "min-w-[40px]"}`
+          `${size == 10 ? "w-[10px]" : "w-[40px]"} ${size == 10 ? "min-w-[20px]" : "min-w-[40px]"}`,
         )}
       />
       <div>

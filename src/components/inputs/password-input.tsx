@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Icons
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { cn } from "../../../lib/utils";
+import { cn } from "../../lib/utils";
 
 export interface IInput {
   label?: string;
@@ -48,7 +48,7 @@ const PasswordInput = ({
           "pr-3",
           "flex justify-between items-center",
           className,
-          isError && "!border-red"
+          isError && "!border-red",
         )}
       >
         <input

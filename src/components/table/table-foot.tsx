@@ -45,7 +45,7 @@ const TableFoot = ({
   function getPageSequence(
     totalItems: number,
     currentPage: number,
-    rowsPerPage: number
+    rowsPerPage: number,
   ) {
     const startIndex = (currentPage - 1) * rowsPerPage;
     const endIndex = Math.min((currentPage - 1) * rowsPerPage, totalItems);
@@ -131,7 +131,7 @@ const TableFoot = ({
           : getPageSequence(
               total || 100,
               currentPage || 0,
-              rowsPerPage || 5
+              rowsPerPage || 5,
             )[0]}
         -{getPageSequence(total || 100, currentPage || 0, rowsPerPage || 5)[1]}{" "}
         of {total}

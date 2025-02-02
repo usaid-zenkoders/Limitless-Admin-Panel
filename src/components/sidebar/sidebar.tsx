@@ -3,7 +3,8 @@
 // Next && React
 
 // Assets Imports
-import { whiteSvgLogo, LogoutLogo } from "../../../image.constants";
+import whiteSvgLogo from "../../assets/white-logo.svg";
+import LogoutLogo from "../../assets/logout.svg";
 // Component
 import Tab from "./tab";
 
@@ -16,15 +17,20 @@ import { TabProps } from "../../types/auth/dashboard/sidebar";
 // import toast from "react-hot-toast";
 import { tabs } from "../../constants/sidebar";
 import { cn } from "../../lib/utils";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
   const [, , removeCookie] = useCookies(["access_token"]);
 
-  // // const router = useRouter();
-  // const handleLogout = () => {
-  //   toast("Logout Successfull ", { type: "success" });
-  //   removeCookie("access_token");
-  // };
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    toast.success("Logged out successfully");
+    removeCookie("access_token");
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
 
   return (
     <div
@@ -35,7 +41,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
         "flex flex-col justify-between",
         "w-[300px] min-w-[300px] max-w-[300px]",
         "bg-black",
-        isOpen ? "absolute lg:relative left-0 top-0 z-50" : "hidden lg:flex"
+        isOpen ? "absolute lg:relative left-0 top-0 z-50" : "hidden lg:flex",
       )}
     >
       <IoIosClose
@@ -61,7 +67,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
           ))}
         </div>
       </div>
-      <button className="ml-2 ">
+      <button className="ml-2 " onClick={handleLogout}>
         <Tab icon={LogoutLogo} name="Logout" link="/" isLogoutButton={true} />
       </button>
     </div>

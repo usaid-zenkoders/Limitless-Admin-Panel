@@ -1,8 +1,7 @@
 // React & next Imports
 import { useNavigate } from "react-router";
 // Icon Import
-import { IoArrowBack } from "react-icons/io5";
-
+import ArrowBack from "../../assets/back-arrow.png";
 interface BackButtonProps {
   link?: string;
 }
@@ -16,13 +15,17 @@ const BackButton = ({ link }: BackButtonProps) => {
   };
 
   return (
-    <button
-      onClick={handleBack}
-      className="flex gap-x-1 cursor-pointer items-center"
-    >
-      <IoArrowBack size={20} color="#667085" />
-      <p className="text-text-primary text-base">Back</p>
-    </button>
+    <>
+      <div className="flex gap-4 items-center">
+        <button
+          onClick={handleBack}
+          className="flex gap-x-6 cursor-pointer items-center"
+        >
+          <img src={ArrowBack} alt="Back Arrow" className="w-[36px] h-[36px]" />
+        </button>
+        <p className="text-text-primary text-2xl font-bold ">User Details</p>
+      </div>
+    </>
   );
 };
 

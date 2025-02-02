@@ -27,8 +27,11 @@ const TextArea = ({
 
   return (
     <label htmlFor={name}>
-      <span className="text-text-primary font-medium text-sm mb-1">
+      <span className="text-[#292929]  text-[15px] ">
         {label}
+        <span className="text-[#ED2015] w-[6.46px] h-[6.22px] mx-[0.5px]">
+          *
+        </span>
       </span>
       <textarea
         value={value}
@@ -41,7 +44,7 @@ const TextArea = ({
         onBlur={
           onBlur as unknown as React.ChangeEventHandler<HTMLTextAreaElement>
         }
-        className={`${isError ? "!border-red" : "border-divider"} outline-none rounded-lg px-4 py-2 !bg-transparent shadow-box-shadow caret-primary resize-none border min-h-[180px] w-full ${className}`}
+        className={`${isError ? "border-red-400" : "border-2 border-[#E8E8E8] "} outline-none rounded-lg px-4 py-2 !bg-transparent shadow-box-shadow caret-primary resize-none border min-h-[180px] w-full ${className} placeholder:text-[12px] placeholder:py-2 my-2`}
       />
       {isError && <p className="text-error text-red text-xs">{error}</p>}
     </label>

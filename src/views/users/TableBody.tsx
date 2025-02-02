@@ -2,10 +2,10 @@
 import { Fragment } from "react";
 
 // Components
-import { Profile } from "../../../image.constants";
 import Avatar from "../../components/common/avatar";
 import { User } from "../../types/auth/user";
 import { cn } from "../../lib/utils";
+import Profile from "../../assets/Avatar.png";
 
 const UsersTableBody = ({
   profile_picture,
@@ -45,7 +45,7 @@ const UsersTableBody = ({
             ) : (
               <td
                 className={cn(
-                  "px-3 whitespace-nowrap overflow-hidden text-ellipsis text-[#656565]"
+                  "px-3 whitespace-nowrap overflow-hidden text-ellipsis text-[#656565]",
                 )}
               >
                 {each}

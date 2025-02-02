@@ -24,7 +24,7 @@ export const GET = async (endPoint: string): Promise<unknown> => {
  */
 export const POST = async (
   endPoint: string,
-  data: unknown = {}
+  data: unknown = {},
 ): Promise<unknown> => {
   try {
     const response = await axiosInstance.post(endPoint, data);
@@ -43,7 +43,7 @@ export const POST = async (
  */
 export const PUT = async (
   endPoint: string,
-  data: unknown = {}
+  data: unknown = {},
 ): Promise<unknown> => {
   try {
     const response = await axiosInstance.put(endPoint, data);
@@ -62,7 +62,7 @@ export const PUT = async (
  */
 export const PATCH = async (
   endPoint: string,
-  data: unknown
+  data: unknown,
 ): Promise<unknown> => {
   try {
     const response = await axiosInstance.patch(endPoint, data);
@@ -81,7 +81,7 @@ export const PATCH = async (
  */
 export const DELETE = async (
   endPoint: string,
-  data?: unknown
+  data?: unknown,
 ): Promise<unknown> => {
   try {
     const response = await axiosInstance.delete(endPoint, { data });

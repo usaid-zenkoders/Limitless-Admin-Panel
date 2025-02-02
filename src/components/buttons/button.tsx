@@ -14,6 +14,7 @@ interface IButton {
   redirectURL?: string;
   disabled?: boolean;
   isIcon?: boolean;
+  isDetailsButton?: boolean;
 }
 
 /**
@@ -40,6 +41,7 @@ const Button = ({
   isOutline,
   // redirectURL,
   disabled,
+  isDetailsButton,
   // isIcon,
 }: IButton) => {
   return (
@@ -51,10 +53,10 @@ const Button = ({
         `${isOutline ? "border border-divider bg-transparent text-text-primary" : "bg-primary text-white"}`,
         "font-medium text-sm",
         "w-fit h-11 ",
-        "px-6 py-2",
+        `px-6 ${isDetailsButton ? "" : "py-2"}`,
         "rounded-lg",
-        "flex items-center justify-center gap-x-3",
-        className
+        "flex items-center justify-center gap-x-3 cursor-pointer",
+        className,
       )}
     >
       {text}

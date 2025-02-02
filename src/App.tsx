@@ -2,30 +2,28 @@ import { Routes, Route, Navigate } from "react-router";
 
 import { useCookies } from "react-cookie";
 import Login from "./views/auth";
-import { AuthProvider } from "./context/auth";
+import { AuthProvider } from "./context/auth/provider";
 import Users from "./views/users";
+import UserDetails from "./views/users/details";
 
 function App() {
   const [cookies] = useCookies(["access_token"]);
   const isAuthenticated = cookies.access_token;
-  console.log(isAuthenticated);
 
   return (
     <AuthProvider>
       <Routes>
-        {/* Redirect logged-in users away from login */}
         <Route
           path="/"
           element={isAuthenticated ? <Navigate to="/users" /> : <Login />}
         />
 
-        {/* Dashboard Routes (Protected) */}
         {isAuthenticated ? (
           <>
             <Route path="/users" element={<Users />} />
+            <Route path="/users/:id" element={<UserDetails />} />
           </>
         ) : (
-          // Redirect Unauthenticated Users to Login
           <Route path="*" element={<Navigate to="/" />} />
         )}
       </Routes>

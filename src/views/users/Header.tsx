@@ -25,7 +25,7 @@ const Header = () => {
     rowsPerPage,
     searchTerm,
     selectedRole,
-    UserStatus
+    UserStatus,
   );
 
   const toggleDropdown = useCallback(() => {
@@ -116,7 +116,7 @@ const Header = () => {
                   <Actions
                     isIcon={false}
                     onView={() => {
-                      navigate(`/user-management/user/${user?.id}`);
+                      navigate(`/users/${user?.id}`);
                     }}
                   />
                 }

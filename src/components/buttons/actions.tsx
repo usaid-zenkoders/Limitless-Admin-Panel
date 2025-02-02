@@ -20,9 +20,10 @@ const Actions = ({ onView }: Props) => {
           "justify-center",
           "rounded-lg",
           "py-4",
+          "cursor-pointer",
           "w-[58px] h-[36px]",
           "bg-black text-white",
-          "text-[16px] font-medium"
+          "text-[16px] font-medium",
         )}
       />
     </div>

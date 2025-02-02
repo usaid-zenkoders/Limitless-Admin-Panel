@@ -1,5 +1,6 @@
 import SignInView from "../../components/auth/loginForm";
-import { LoginScreenLogo } from "../../../image.constants";
+import LoginScreenLogo from "../../assets/Login-Logo.png";
+import MobileScreenLoginLogo from "../../assets/white-logo.svg";
 
 function Login() {
   return (
@@ -16,7 +17,7 @@ function Login() {
       <div className="flex flex-col items-center justify-center w-full md:w-[40%] p-4 h-full ">
         <div className="md:hidden flex gap-4 justify-center items-center mb-6">
           <img
-            src="assets/white-logo.svg"
+            src={MobileScreenLoginLogo}
             alt="Logo"
             className="w-[69px] h-[69px]"
           />

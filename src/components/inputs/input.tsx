@@ -2,7 +2,7 @@
 
 // React
 import React from "react";
-import { cn } from "../../../lib/utils";
+import { cn } from "../../lib/utils";
 
 export interface IInput {
   label?: string;
@@ -51,7 +51,7 @@ const Input = ({
           "rounded-2xl shadow-box-shadow",
           "px-3 py-6",
           className,
-          isError
+          isError,
         )}
       />
       {isError && (
