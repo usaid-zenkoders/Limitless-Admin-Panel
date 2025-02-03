@@ -14,10 +14,10 @@ import { useApproveUserHook } from "../../services/users/approve-user";
 const UserDetails = () => {
   const param = useParams();
   const { data, isPending: userDetailsPending } = useGetUserbyIdHook(
-    Number(param?.id),
+    Number(param?.id)
   );
   const { mutateAsync: ApproveUser, isPending } = useApproveUserHook(
-    Number(param?.id),
+    Number(param?.id)
   );
 
   const handleApproveUser = (id: number) => {
@@ -36,7 +36,7 @@ const UserDetails = () => {
       <div className=" bottom-[-11px] h-[2px] bg-[#E8E8E8] my-6 "></div>
       <Header isBackButton link="/users" />
       {data && data?.is_rejected && (
-        <div className="border-3 border-[#E8E8E8] rounded-2xl my-6 py-6 pl-4 w-[1108px] h-[168px]">
+        <div className="border-3 border-[#E8E8E8] rounded-2xl my-6 py-6 pl-4 w-full h-[168px]">
           <div>
             <h1 className="text-[24px] text-[#F9382D] font-medium">
               Reason of Rejection !
@@ -76,7 +76,7 @@ const UserDetails = () => {
             {data && data?.is_verified ? (
               <Button
                 text="Approved"
-                className="bg-[#0000001A] text-black rounded-xl"
+                className="bg-[#0000001A] text-black rounded-xl md:mr-4"
                 isDetailsButton={true}
                 disabled={true}
               />
